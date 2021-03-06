@@ -6,9 +6,8 @@
 // node_modules/ssb-fixtures/lib/bin.js --outputDir ./data --messages 100000 --seed ssb-db2-examples && mkdir -p data/db2 && node node_modules/jitdb/copy-json-to-bipf-async.js data/flume/log.offset data/db2/log.bipf
 
 const ssbFixtures = require("ssb-fixtures");
-const { mkdir, rmdir } = require("fs/promises")
 const { exec } = require("child_process");
-const { existsSync } = require("fs");
+const { existsSync, mkdirSync } = require("fs");
 
 async function generateData() {
   if (existsSync("./data")) {
@@ -25,7 +24,7 @@ async function generateData() {
   
   await ssbFixtures(options);
   
-  await mkdir("./data/db2");
+  mkdirSync("./data/db2");
   
   exec("node node_modules/jitdb/copy-json-to-bipf-async.js data/flume/log.offset data/db2/log.bipf", (err, stdout, stderr) => {
     if (err) {
