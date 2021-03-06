@@ -44,6 +44,11 @@ How to get information about a post.
 
 In this repository a User is synonymous with a feed. Users are identified by a userId in most queries which is a feed Id and ends with .ed2556 (check this is correct).
 
-#### get-user
+#### get-user-posts
 
-How to get the name, description and profile picture of a user.
+Get all posts that a user has made. These are all messages with a type of `post`.
+
+## FAQ
+
+Q: Why do you run `.slice()` on data being returned from the callback?
+A: Arrays are passed by reference, when returning the data by reference then calling `sbot.close()` the database was throwing segfaults, because it closed while the test was still using the data by reference. Calling `.slice()` creates a copy of the data so it doesn't error out.
