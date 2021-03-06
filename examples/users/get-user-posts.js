@@ -10,7 +10,7 @@ module.exports = function(sbot) {
       and(type('post')),
       and(author(userId)),
       toCallback((err, msgs) => {
-        callback(err, msgs.slice());
+        callback(err, msgs);
       })
     );
   }

@@ -47,8 +47,3 @@ In this repository a User is synonymous with a feed. Users are identified by a u
 #### get-user-posts
 
 Get all posts that a user has made. These are all messages with a type of `post`.
-
-## FAQ
-
-Q: Why do you run `.slice()` on data being returned from the callback?
-A: Arrays are passed by reference, when returning the data by reference then calling `sbot.close()` the database was throwing segfaults, because it closed while the test was still using the data by reference. Calling `.slice()` creates a copy of the array so it doesn't error.

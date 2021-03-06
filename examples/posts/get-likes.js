@@ -12,7 +12,7 @@ module.exports = function(sbot) {
         votesFor(postId)
       ),
       toCallback((err, msgs) => {
-        callback(err, msgs.slice());
+        callback(err, msgs);
       })
     )
   }
