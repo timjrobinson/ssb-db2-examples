@@ -1,18 +1,26 @@
 {
-  "name": "ssb-examples",
+  "name": "ssb-db2-examples",
   "version": "0.0.1",
-  "description": "Examples showing how to perform common SSB queries using pullstreams. Useful when creating your own Scuttlebutt application.",
+  "description": "Examples showing how to perform common SSB queries using SSB DB2. Useful when creating your own Scuttlebutt application.",
   "main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node generate-data.js && tape test/*.js | tap-spec",
+    "generate-data": "node generate-data"
   },
   "keywords": [
     "ssb",
     "scuttlebutt"
   ],
   "author": "Tim Robinson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jitdb": "^2.3.3",
+    "ssb-db2": "^1.18.2",
+    "ssb-fixtures": "^2.2.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2"
+  }
 }
