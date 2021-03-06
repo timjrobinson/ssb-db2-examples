@@ -1,5 +1,5 @@
-const test = require('tape')
 const path = require("path")
+const test = require('tape')
 const SecretStack = require('secret-stack')
 const caps = require('ssb-caps')
 const ssbKeys = require('ssb-keys')
@@ -8,7 +8,7 @@ const importFresh = require("import-fresh")
 const generateData = importFresh("./generate-data");
 const config = require("../config.json");
 
-const dataPath =  path.join(__dirname, "..", "data", "users");
+const dataPath =  path.join(__dirname, "..", "data", "posts");
 
 let sbot; 
 
@@ -19,23 +19,23 @@ test('setup', (t) => {
     const keys = ssbKeys.loadOrCreateSync(path.join(dataPath, "secret"));
     sbot = SecretStack({ caps })
       .use(require('ssb-db2'))
-      .call(null, { keys, path: dataPath }) 
-    
-    t.end()
+      .call(null, { keys, path: dataPath })
+
+    t.end();
   });
 });
-
-test('getUserPosts', (t) => {
-  const getUserPosts = require("../examples/users/get-user-posts")(sbot);
-  getUserPosts(config.ssb_ids.user, (err, msgs) => {
-    t.error(err)
-    t.equal(msgs.length, 3)
-    t.end()
+  
+test('getPostLikes', (t) => {
+  const getPostLikes = require("../examples/posts/get-likes")(sbot);
+  getPostLikes(config.ssb_ids.post, (err, likes) => {
+    t.error(err);
+    t.equal(likes.length, 39);
+    t.end();
   });
 });
 
 test('teardown', (t) => {
   setTimeout(() => {
-    sbot.close(() => t.end())
+    sbot.close(() => t.end());
   }, 500);
 });

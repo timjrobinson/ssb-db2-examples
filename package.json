@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "node generate-data.js && tape test/*.js | tap-spec",
+    "test": "(tape test/posts.js && tape test/users.js) | tap-spec",
     "generate-data": "node generate-data"
   },
   "keywords": [
@@ -17,6 +17,7 @@
   "author": "Tim Robinson",
   "license": "MIT",
   "dependencies": {
+    "import-fresh": "^3.3.0",
     "jitdb": "^2.3.3",
     "ssb-db2": "^1.18.2",
     "ssb-fixtures": "^2.2.0",
