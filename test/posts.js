@@ -8,7 +8,7 @@ const importFresh = require("import-fresh")
 const generateData = importFresh("./generate-data");
 const config = require("../config.json");
 
-const dataPath =  path.join(__dirname, "..", "data", "posts");
+const dataPath =  path.join(__dirname, "..", "data");
 
 let sbot; 
 

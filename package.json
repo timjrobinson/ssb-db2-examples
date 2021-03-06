@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "(tape test/posts.js && tape test/users.js) | tap-spec",
+    "test": "tape test/*.js | tap-spec",
     "generate-data": "node generate-data"
   },
   "keywords": [
