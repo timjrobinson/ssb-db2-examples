@@ -2,18 +2,18 @@
  * This example shows how to get all "likes" for a specific post
 **/
 
-const {and, type, votesFor, toCallback} = require('ssb-db2/operators')
+const {and, type, votesFor, toPromise} = require('ssb-db2/operators')
+const config = require("../../config.json");
 
 module.exports = function(sbot) {
-  function getLikes(postId, callback) {
-    sbot.db.query(
+  function getLikes(postId) {
+    postId = postId || config.ssb_ids.post;
+    return sbot.db.query(
       and(
         type("vote"), 
         votesFor(postId)
       ),
-      toCallback((err, msgs) => {
-        callback(err, msgs);
-      })
+      toPromise()
     )
   }
 

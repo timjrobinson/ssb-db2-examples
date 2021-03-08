@@ -27,8 +27,7 @@ test('setup', (t) => {
 
 test('getUserPosts', (t) => {
   const getUserPosts = require("../examples/users/get-user-posts")(sbot);
-  getUserPosts(config.ssb_ids.user, (err, msgs) => {
-    t.error(err)
+  getUserPosts(config.ssb_ids.user).then((msgs) => {
     t.equal(msgs.length, 3)
     t.end()
   });

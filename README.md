@@ -5,7 +5,27 @@ These examples show how to do common SSB queries using [SSB DB2](https://github.
 
 ## Usage
 
-`npm start` - Runs all examples using the config.json file. To enable writing or configure the examples see the config section.
+### Generate Data
+
+`npm run generate-data` - Generate test data to play around with. The data is created in the `./data` folder. 
+
+Alternatively you can copy your `~/.ssb` folder into `./data` to run queries on it.
+
+### Run Examples
+
+`npm run example <path> [params]` - Run a specific example with specified parameters. If no parameters are specified the defaults from `config.json` will be used.
+
+Example Commands
+
+```sh
+npm run example users/get-user-posts
+
+npm run example post/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256
+```
+
+### Run All Examples
+
+`npm test` - Runs all examples using the config.json file. To enable writing or configure the examples see the config section.
 
 ## Config
 

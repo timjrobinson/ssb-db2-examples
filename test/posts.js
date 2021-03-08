@@ -27,8 +27,7 @@ test('setup', (t) => {
   
 test('getPostLikes', (t) => {
   const getPostLikes = require("../examples/posts/get-likes")(sbot);
-  getPostLikes(config.ssb_ids.post, (err, likes) => {
-    t.error(err);
+  getPostLikes(config.ssb_ids.post).then((likes) => {
     t.equal(likes.length, 39);
     t.end();
   });
