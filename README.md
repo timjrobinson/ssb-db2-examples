@@ -7,13 +7,20 @@ These examples show how to do common SSB queries using [SSB DB2](https://github.
 
 ### Generate Data
 
-`npm run generate-data` - Generate test data to play around with. The data is created in the `./data` folder. 
+`npm run generate-data` - Generate test data to play around with. The data is created in the `./data` folder.
 
-Alternatively you can copy your `~/.ssb` folder into `./data` to run queries on it.
+Alternatively you can do copy your existing SSB data with:
+
+```sh
+mkdir -p ./data/db2/
+node ./node_modules/jitdb/copy-json-to-bipf-async.js ~/.ssb/flume/log.offset ./data/db2/log.bipf
+```
+
+and you'll be able to run the examples using it.
 
 ### Run Examples
 
-`node run-example.js <path> [params] [--json]` - Run a specific example with specified parameters. If no parameters are specified the defaults from `config.json` will be used.
+`node run-example.js <path> [params] [--json]` - Run a specific example with specified parameters.
 
 #### Example Commands
 
@@ -56,25 +63,25 @@ Feel free to add your own examples for things not already covered. I'd like this
 
 Categories and filenames are in alphabetical order. You can find the files in examples/category/name.js. You can run the index.js file to see how to use each of these different queries.
 
-### Blobs
+### Messages
 
-#### get-blob
+#### get-all-messages
 
-How to retrieve a blob via ID
+Get all messages in your database
 
-#### get-random-blob
+#### get-message
 
-How to retrieve a random blob
+Get a single message by ID. 
 
 ### Posts
 
 #### get-likes
 
-How to get total likes for a post and a list of User ID's that liked a post.
+Get total likes for a post and a list of User ID's that liked a post.
 
 #### get-post
 
-How to get information about a post.
+Get a single post by ID. This is the same as get-message but nothing will be returned if the type of the message is not `post`.
 
 ### Users
 
