@@ -17,12 +17,14 @@ Alternatively you can copy your `~/.ssb` folder into `./data` to run queries on 
 
 #### Example Commands
 
-Get all posts for the user specified in config.json
+If you're looking for ID's to use look in [config.json]
+
+Get all posts for a user
 ```sh
-node run-example.js users/get-user-posts
+node run-example.js users/get-user-posts @iJW1b884BcWfBXIrFG2rXDfeCS9o69ePSuDBXYBXVvE=.ed25519
 ```
 
-Get all 'like' messages (called votes internally) for this message
+Get all 'like' messages for this message
 ```
 node run-example.js posts/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256
 ```
