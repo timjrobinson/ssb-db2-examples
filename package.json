@@ -9,7 +9,7 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec",
     "generate-data": "node generate-data",
-    "example": "node examples/run.js"
+    "example": "node run-example.js"
   },
   "keywords": [
     "ssb",

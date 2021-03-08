@@ -13,14 +13,16 @@ Alternatively you can copy your `~/.ssb` folder into `./data` to run queries on 
 
 ### Run Examples
 
-`npm run example <path> [params]` - Run a specific example with specified parameters. If no parameters are specified the defaults from `config.json` will be used.
+`node run-example.js <path> [params] [--json]` - Run a specific example with specified parameters. If no parameters are specified the defaults from `config.json` will be used.
 
 Example Commands
 
 ```sh
-npm run example users/get-user-posts
+node run-example.js users/get-user-posts # Get all posts for the user specified in config.json
 
-npm run example post/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256
+node run-example.js posts/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256 # Get all 'like' messages (called votes internally) for this message
+
+node run-example.js messages/get-all-messages --json > messages.json # Get all messages in the database in json format and put them in a json file
 ```
 
 ### Run All Examples
