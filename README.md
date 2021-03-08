@@ -15,14 +15,26 @@ Alternatively you can copy your `~/.ssb` folder into `./data` to run queries on 
 
 `node run-example.js <path> [params] [--json]` - Run a specific example with specified parameters. If no parameters are specified the defaults from `config.json` will be used.
 
-Example Commands
+#### Example Commands
 
+Get all posts for the user specified in config.json
 ```sh
-node run-example.js users/get-user-posts # Get all posts for the user specified in config.json
+node run-example.js users/get-user-posts
+```
 
-node run-example.js posts/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256 # Get all 'like' messages (called votes internally) for this message
+Get all 'like' messages (called votes internally) for this message
+```
+node run-example.js posts/get-likes %l2brqjfqS/52POoCZVHL7GzCq1VWyMJGW5VyJH1QsoM=.sha256
+```
 
-node run-example.js messages/get-all-messages --json > messages.json # Get all messages in the database in json format and put them in a json file
+Get all messages in the database in json format and put them in a json file
+```
+node run-example.js messages/get-all-messages --json > messages.json
+```
+
+Get a single message and get the content with jq
+```
+node run-example.js messages/get-message %8HLZGm3vlzEJKNkJIGwBOieOko57Fy1h/S34Zgd9Gi8=.sha256 --json | jq '.[0].value.content'
 ```
 
 ### Run All Examples
